@@ -1,7 +1,0 @@
-cats
-dogs
-fish
-back b
-bones
-biceps 
-legs
