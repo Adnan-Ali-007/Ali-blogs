@@ -7,6 +7,7 @@ const {configDotenv} = require("dotenv")
 configDotenv();
 
 const app = express()
+const port = process.env.PORT || 3000;
 const marked = require('marked');
 const DB = `mongodb+srv://Adnan:${process.env.DB_PASSWORD}@markdown-blogs-cluster.ctjoxbh.mongodb.net/BlogsDB?retryWrites=true&w=majority&appName=Markdown-Blogs-cluster`;
 mongoose.connect(DB).then(() => {
@@ -26,4 +27,6 @@ app.get('/', async (req, res) => {
 
 app.use('/articles', articleRouter)
 
-app.listen(5000)
+app.listen(port, ()=>{
+  console.log(`Listening on port ${port}`)
+});
